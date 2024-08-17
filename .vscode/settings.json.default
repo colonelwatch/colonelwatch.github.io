@@ -1,5 +1,10 @@
 {
     "markdown.styles": [
         ".vscode/style.css"
-    ]
+    ],
+    "spellright.ignoreRegExpsByClass": {
+        "markdown": [
+            "/(\\${1,2})[^\\$\\r\\n]+\\1/g"
+        ]
+    }
 }
