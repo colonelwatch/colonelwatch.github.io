@@ -1,0 +1,90 @@
+{% comment %}
+  Placeholder to allow defining custom head, in principle, you can add anything here, e.g. favicons:
+
+  1. Head over to https://realfavicongenerator.net/ to add your own favicons.
+  2. Customize default _includes/custom-head.html in your source directory and insert the given code snippet.
+{% endcomment %}
+
+<!-- https://katex.org/docs/autorender.html -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+    });
+</script>
+
+<script>
+  function pad_inline_katex() {
+    // strictly select inline katex spans (don't touch spans in katex-display elements)
+    inline_katex_elements = document.querySelectorAll("span:not(.katex-display) > span.katex")
+
+    // zero out previous padding, but only if it's not already zero
+    for(var i = 0; i < inline_katex_elements.length; i++){
+      let katex_base_elements = inline_katex_elements[i].querySelectorAll("span.katex-html > span.base");
+      for(var j = 0; j < katex_base_elements.length; j++){
+        let paddingLeft = parseFloat(getComputedStyle(katex_base_elements[j]).paddingLeft);
+        let paddingRight = parseFloat(getComputedStyle(katex_base_elements[j]).paddingRight);
+        if(paddingLeft != 0){
+          katex_base_elements[j].style.paddingLeft = "0px";
+        }
+        if(paddingRight != 0){
+          katex_base_elements[j].style.paddingRight = "0px";
+        }
+      }
+    }
+
+    for(var i = 0; i < inline_katex_elements.length; i++){
+      // assuming the iA Writer font family, the width of a character is 60% of its height
+      let parent_block_style = getComputedStyle(inline_katex_elements[i].parentElement.parentElement);
+      let parent_char_width = 0.6*parseInt(parent_block_style.fontSize, 10)
+
+      // assuming "content order" of ClientRects is the same as document order, we can do a linear traversal
+      let katex_base_elements = inline_katex_elements[i].querySelectorAll("span.katex-html > span.base")
+      let client_bboxes = inline_katex_elements[i].getClientRects();
+      for(var j = 0, k = 0; j < client_bboxes.length; j++){
+        let start_k = k, end_k = null, in_bounds = true;
+        do {
+          let katex_base_element_bbox = katex_base_elements[k].getBoundingClientRect();
+          
+          // .x and .y is sometimes beyond the client bbox, so we'll use the averages of the sides
+          // TODO: find a more robust way to do this
+          let x = (katex_base_element_bbox.left + katex_base_element_bbox.right)/2;
+          let y = (katex_base_element_bbox.top + katex_base_element_bbox.bottom)/2;
+
+          in_bounds = (
+              x >= client_bboxes[j].left && x <= client_bboxes[j].right && 
+              y >= client_bboxes[j].top  && y <= client_bboxes[j].bottom)
+          if(in_bounds){
+            end_k = k;
+            k++;
+          } // else *don't* advance k because k is where the next client_bbox starts
+        } while(in_bounds && k <= katex_base_elements.length-1);
+
+        let current_bbox_width = client_bboxes[j].width;
+        let content_width = current_bbox_width;
+        let new_bbox_width = Math.ceil(content_width/parent_char_width)*parent_char_width;
+        let new_padding = (new_bbox_width-content_width)/2;
+
+        katex_base_elements[start_k].style.paddingLeft = new_padding + "px";
+        katex_base_elements[end_k].style.paddingRight = new_padding + "px";
+      }
+    }
+  }
+
+  window.addEventListener("pageshow", pad_inline_katex);
+  window.addEventListener("resize", pad_inline_katex);
+  screen.orientation.addEventListener("change", pad_inline_katex);
+</script>

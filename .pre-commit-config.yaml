@@ -1,0 +1,29 @@
+default_stages: [pre-commit]
+repos:
+- repo: local
+  hooks:
+  - id: update-preview-css
+    name: Update Markdown preview CSS
+    entry: sass -I _sass --no-source-map .vscode/style.scss .vscode/style.css
+    language: system
+    types: [scss]
+    pass_filenames: false
+  - id: compress-png
+    name: Compress PNGs
+    entry: parallel -j 20 --nice 10 "zopflipng -y {} {}" ":::"
+    language: system
+    types: [png]
+  - id: remove-exif-gps
+    name: Remove EXIF GPS metadata
+    description: This hook removes GPS information from EXIF metadata.
+    entry: exiftool -overwrite_original "-gps*="
+    language: system
+    types: [image]
+    exclude_types: [svg, png]
+    require_serial: true
+  - id: shrink-jpeg
+    name: Shrink JPEGs
+    entry: mogrify -resize x800> -define jpeg:extent=256kb
+    language: system
+    types: [jpeg]
+    require_serial: true

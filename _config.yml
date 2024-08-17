@@ -1,0 +1,27 @@
+title: just for context by Kenny Peng
+short_title: just for context
+author:
+  name: Kenny Peng
+  email: knypng44@gmail.com
+description: > # this means to ignore newlines until "show_excerpts:"
+  A blog about my personal projects 
+  and the rich backgrounds they rely on
+
+show_excerpts: false # set to true to show excerpts on the homepage
+
+google_analytics: UA-79854479-3
+
+minima:
+  date_format: "%b %-d, %Y"
+  social_links: # see social.html for options
+    github:  colonelwatch
+    linkedin: kenny-peng-40b3a716b
+
+header_pages:
+  - about.md
+  # Resume
+
+plugins:
+ - jekyll-feed
+ - jekyll-sitemap
+ - jekyll-seo-tag
