@@ -1,6 +1,6 @@
 # colonelwatch.github.io
 
-This is the repo for my personal website, [www.kenny-peng.com](https://kenny-peng.com). To be exact, it's hosted on GitHub Pages, a static site hosting service, and this is used as the source to build the static site.
+This is the repo for my personal website, [kenny-peng.com](https://kenny-peng.com). To be exact, it's hosted on GitHub Pages, a static site hosting service, and this is used as the source to build the static site.
 
 ## Attribution
 
