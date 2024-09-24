@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="100%"
+   height="100%"
+   viewBox="-10 -103 212 120"
+   id="svg22"
+   sodipodi:docname="Spectral_Radius.svg"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview22"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="4.9707935"
+     inkscape:cx="38.625624"
+     inkscape:cy="76.74831"
+     inkscape:window-width="2860"
+     inkscape:window-height="1692"
+     inkscape:window-x="0"
+     inkscape:window-y="44"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g22" />
+  <desc
+     id="desc1">Spectral radius for Successive over-relaxation method</desc>
+  <path
+     stroke="blue"
+     fill="none"
+     stroke-width="1"
+     d=" M-0,-100 Q 4,-98.4 8,-96.72 12,-95.04 16,-93.27 20,-91.5 24,-89.63 28,-87.76 32,-85.78 36,-83.8 40,-81.69 44,-79.58 48,-77.33 52,-75.07 56,-72.64 60,-70.21 64,-67.56 68,-64.92 72,-62.02 76,-59.12 80,-55.88 84,-52.65 88,-48.94 92,-45.24 96,-40.79 100,-36.4 104,-30.41 108,-25.27 112,-12 116,-16 120,-20 124,-24 128,-28 132,-32 136,-36 140,-40 144,-44 148,-48 152,-52 156,-56 160,-60 164,-64 168,-68 172,-72 176,-76 180,-80 184,-84 188,-88 192,-92 196,-96 200,-100"
+     id="path1" />
+  <path
+     stroke="red"
+     fill="none"
+     stroke-width="1"
+     d=" M-0,-100 Q 3.333,-99.33 6.667,-98.63 10,-97.93 13.33,-97.18 16.67,-96.44 20,-95.65 23.33,-94.86 26.67,-94.02 30,-93.18 33.33,-92.28 36.67,-91.39 40,-90.43 43.33,-89.47 46.67,-88.44 50,-87.41 53.33,-86.3 56.67,-85.19 60,-83.99 63.33,-82.79 66.67,-81.47 70,-80.16 73.33,-78.72 76.67,-77.27 80,-75.67 83.33,-74.07 86.67,-72.28 90,-70.48 93.33,-68.44 96.67,-66.39 100,-64 103.3,-61.62 106.7,-58.73 110,-55.86 113.3,-52.13 116.7,-48.51 120,-42.82 123.3,-35.72 126.7,-26.67 130,-30 133.3,-33.33 136.7,-36.67 140,-40 143.3,-43.33 146.7,-46.67 150,-50 153.3,-53.33 156.7,-56.67 160,-60 163.3,-63.33 166.7,-66.67 170,-70 173.3,-73.33 176.7,-76.67 180,-80 183.3,-83.33 186.7,-86.67 190,-90 193.3,-93.33 196.7,-96.67 200,-100"
+     id="path2" />
+  <path
+     stroke="green"
+     fill="none"
+     stroke-width="1"
+     d=" M-0,-100 Q 3.333,-99.83 6.667,-99.66 10,-99.48 13.33,-99.29 16.67,-99.1 20,-98.89 23.33,-98.69 26.67,-98.47 30,-98.25 33.33,-98.02 36.67,-97.78 40,-97.53 43.33,-97.27 46.67,-97 50,-96.72 53.33,-96.42 56.67,-96.12 60,-95.79 63.33,-95.46 66.67,-95.09 70,-94.73 73.33,-94.33 76.67,-93.93 80,-93.48 83.33,-93.03 86.67,-92.53 90,-92.03 93.33,-91.47 96.67,-90.9 100,-90.25 103.3,-89.6 106.7,-88.85 110,-88.1 113.3,-87.22 116.7,-86.33 120,-85.27 123.3,-84.21 126.7,-82.89 130,-81.58 133.3,-79.87 136.7,-78.17 140,-75.77 143.3,-73.46 146.7,-69.44 150,-66.61 153.3,-53.33 156.7,-56.67 160,-60 163.3,-63.33 166.7,-66.67 170,-70 173.3,-73.33 176.7,-76.67 180,-80 183.3,-83.33 186.7,-86.67 190,-90 193.3,-93.33 196.7,-96.67 200,-100"
+     id="path3" />
+  <path
+     stroke="black"
+     fill="none"
+     stroke-width=".75"
+     d="M0,-100, V0 M0,0 H200"
+     id="path4" />
+  <defs
+     id="defs6">
+    <pattern
+       id="grid"
+       width="20"
+       height="20"
+       stroke-width=".5"
+       patternUnits="userSpaceOnUse">
+      <path
+         d="M0,20 v-20h40v20h-20"
+         fill="none"
+         stroke-dasharray="2,3"
+         stroke="#555"
+         id="path5" />
+    </pattern>
+    <pattern
+       id="ticks"
+       width="10"
+       height="10"
+       stroke-width=".5"
+       patternUnits="userSpaceOnUse">
+      <path
+         d="M0,0h10 M0,0v10"
+         fill="none"
+         stroke="#000"
+         id="path6" />
+    </pattern>
+  </defs>
+  <rect
+     x="0"
+     y="-100"
+     width="203"
+     height="103"
+     fill="url(#grid)"
+     id="rect6" />
+  <path
+     stroke="green"
+     fill="none"
+     stroke-width="1"
+     d="M10,-20 h10"
+     id="path7" />
+  <path
+     stroke="red"
+     fill="none"
+     stroke-width="1"
+     d="M10,-13.5 h10"
+     id="path8" />
+  <path
+     stroke="blue"
+     fill="none"
+     stroke-width="1"
+     d="M10,-7 h10"
+     id="path9" />
+  <g
+     font-size="8"
+     fill="#000"
+     font-family="New Century Schoolbook"
+     text-anchor="middle"
+     stroke="none"
+     id="g22">
+    <text
+       y="7"
+       font-size="7"
+       id="text12"><tspan
+         x="-2"
+         id="tspan9">0</tspan><tspan
+         x="100"
+         id="tspan10">1</tspan><tspan
+         x="198"
+         id="tspan11">2</tspan><tspan
+         x="-3"
+         y="-97"
+         id="tspan12">1</tspan></text>
+    <text
+       text-anchor="left"
+       font-size="7px"
+       id="text18"
+       x="-3.6555281"
+       y="0.31273523"
+       style="text-align:start;text-anchor:start"><tspan
+         x="21.344471"
+         y="-18.687265"
+         font-style="italic"
+         id="tspan13"
+         style="text-align:start;text-anchor:start">µ</tspan><tspan
+         id="tspan14"
+         style="text-align:start;text-anchor:start">=0.95</tspan><tspan
+         x="21.344471"
+         y="-11.687264"
+         font-style="italic"
+         id="tspan15"
+         style="text-align:start;text-anchor:start">µ</tspan><tspan
+         id="tspan16"
+         style="text-align:start;text-anchor:start">=0.8</tspan><tspan
+         x="21.344471"
+         y="-4.6872654"
+         font-style="italic"
+         id="tspan17"
+         style="text-align:start;text-anchor:start">µ</tspan><tspan
+         id="tspan18"
+         style="text-align:start;text-anchor:start">=0.6</tspan></text>
+    <text
+       font-style="italic"
+       id="text19"><tspan
+         x="100"
+         y="15"
+         id="tspan19">ω</tspan></text>
+    <text
+       font-style="italic"
+       x="-3"
+       y="-50"
+       transform="rotate(-90,-3,-50)"
+       id="text22"><tspan
+         id="tspan20">ρ(C</tspan><tspan
+         font-size="4.5"
+         id="tspan21">ω</tspan><tspan
+         id="tspan22">)</tspan></text>
+  </g>
+</svg>
