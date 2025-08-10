@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Detecting motion in RPLIDAR data using optical flow
-excerpt: "Over a week, I happened to hack together an interesting procedure that ended up being an important part of the senior capstone project I was contributing to. The objective of this procedure: if it moves, detect it! The sensor involved here is the RPLIDAR, a low-cost \"laser range scanner\" that yields distances from itself at all angles. The principle behind the procedure is \"optical flow\", a whole class of techniques for inferring the velocity of an object in a video by looking from frame to frame. The specific technique I used is a classic called the \"Lucas-Kanade method\". It turned out that the same reasoning that constructs it (and optical flow more generally) also works with the data taken from the RPLIDAR."
 tags: [interpolation, low-pass filters, finite differences, optical flow, the Lucas-Kanade method]
 ---
 
@@ -9,7 +8,11 @@ Over a week, I happened to hack together an interesting procedure that ended up 
 
 <figure>
 <img src="/images/2023-05-26/figure1.gif" alt="tracking of three moving people in a room anim"/>
-<figcaption>Context: three people in moving a room</figcaption>
+<figcaption>
+
+Context: three people in moving a room
+
+</figcaption>
 </figure>
 
 ...detect it! The sensor involved here is the RPLIDAR, a low-cost "laser range scanner" that yields distances from itself at all angles. The principle behind the procedure is ["optical flow"](https://en.wikipedia.org/wiki/Optical_flow), a whole class of techniques for inferring the velocity of an object in a video by looking from frame to frame. The specific technique I used is a classic called the "Lucas-Kanade method". It turned out that the same reasoning that constructs it (and optical flow more generally) also works with the data taken from the RPLIDAR.
@@ -84,7 +87,11 @@ Though I don't trade stocks, a stock's price is a great example. When people say
 
 <figure>
 <img src="/images/2023-05-26/figure6.png" alt="moving average"/>
-<figcaption>SMA and EMA technical indicators are low-pass filters. By Alex Kofman via Wikimedia and used under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0 license</a></figcaption>
+<figcaption>
+
+SMA and EMA technical indicators are low-pass filters. By Alex Kofman via Wikimedia and used under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0 license</a>
+
+</figcaption>
 </figure>
 
 Coincidentally, if we happened to be short-term traders, then the opposite would be true! Long-term trends would be noise, and there are "high-pass filters" for that.

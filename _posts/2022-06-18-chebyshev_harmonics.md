@@ -17,7 +17,11 @@ You already know one if you can recall the double-angle formula, $\cos(2x) = 2\c
 
 <figure>
 <img src="/images/2022-06-18/figure2.png" alt="T_4(x) and cos(4x) plots"/>
-<figcaption>Okay, my only reason for bringing up $T_4(x)$ was this elegant-looking plot, though it's not as elegant for other $n$. That aside!</figcaption>
+<figcaption>
+
+Okay, my only reason for bringing up $T_4(x)$ was this elegant-looking plot, though it's not as elegant for other $n$. That aside!
+
+</figcaption>
 </figure>
 
 Now, algebraically manipulating these angle identities into polynomials is a nice hat trick, but there is a simpler way to think of all the Chebyshev polynomials. In the first section of *Chebyshev Polynomials* by Mason and Handscomb (the first book that appeared on Google Scholar, don't @ me), you can find the claim that algebraic manipulations of De Moivre's theorem are---technically---all that you need to find a Chebyshev polynomial $T_n(x)$ for arbitrary $n$. But in that same section, you can find an easy recurrence that connects them all:

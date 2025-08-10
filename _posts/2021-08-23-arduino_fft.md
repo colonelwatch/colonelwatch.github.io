@@ -2,7 +2,6 @@
 layout: post
 title: On building real-time music spectrum visualizers using the FFT in Arduino
 modified_date: 2023-05-19
-excerpt: I've dedicated a lot of time to music visualization in Arduino (see my best work, [ESP32-oled-spectrum](https://github.com/colonelwatch/ESP32-oled-spectrum)). However, I've never elaborated on my thoughts and findings before, and it just ended up hidden in that project. Now, I figured, some people could probably benefit from it. **Yes**, an FFT can be run on a microcontroller, and you won't need the MSGEQ7 or a PC if you do this right. It's a bit informal (apologies), but here are three tips to get that running fast and at high resolution.
 tags: [the Fast Fourier Transform (FFT)]
 ---
 

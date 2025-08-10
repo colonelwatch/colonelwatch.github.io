@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "revRSS: The basic infrastructure behind finding reverse split press releases and trading on them"
-excerpt: "A couple years ago, I used to be subscribed to a mailing list called \"Reverse Split Arbitrage\", and I remember being surprised that the trading tips that landed in my inbox really did make me a bit of money. The central idea of it was based on a stock market technicality."
 tags: [XML/HTML, RSS, WebSub]
 ---
 
@@ -26,7 +25,11 @@ With that said, even getting this far required quite a bit of infrastructure! If
 
 <figure>
 <img src="/images/2023-11-04/figure1.png" alt="diagram showing infrastructure of revRSS project as of Nov 4th, 2023, consisting of a primary server interacting with newswires and using Cloudflares Tunnels as its public face, while at the same time a user can be notified by their online RSS reader via a WebSub broker. primary server circled in red to show that it is within my home network"/>
-<figcaption>The infrastructure of revRSS as of Nov 4th, 2023, with the primary server being in my home network. It's worth noting here that, if a powerful enough server was rented from a cloud provider, the primary server, the WebSub broker, and Cloudflare Tunnels could be replaced by that single server.</figcaption>
+<figcaption>
+
+The infrastructure of revRSS as of Nov 4th, 2023, with the primary server being in my home network. It's worth noting here that, if a powerful enough server was rented from a cloud provider, the primary server, the WebSub broker, and Cloudflare Tunnels could be replaced by that single server.
+
+</figcaption>
 </figure>
 
 And now, I'll say it again in longform.

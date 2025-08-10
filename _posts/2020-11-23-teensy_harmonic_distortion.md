@@ -2,7 +2,6 @@
 layout: post
 title: Adding harmonic distortion with Arduino Teensy
 modified_date: 2023-10-10
-excerpt: A couple months ago, I picked up a Teensy 4.0 and the Audio Adapter Board because I wanted a cheap but simple platform for trying DSP on my music. One of the things I lately wanted to try was adding harmonic distortion, especially since it usually gets the credit for the sound of tube amplifiers. To accomplish this, I did some calculations, and I found out that I could apply *any* harmonic distortion profile I wanted (with a caveat). The key was using the Teensy Audio library's *waveshape* block.
 tags: [harmonic distortion]
 ---
 
@@ -18,17 +17,29 @@ I'll lead with the results. I tested the code for putting in a second harmonic w
 
 <figure>
 <img src="/images/2020-11-23/figure1.png" alt="1kHz sine wave in and out of Teensy"/>
-<figcaption>1kHz sine wave going into and out of the Teensy</figcaption>
+<figcaption>
+
+1kHz sine wave going into and out of the Teensy
+
+</figcaption>
 </figure>
 
 <figure>
 <img src="/images/2020-11-23/figure2.png" alt="FFT of 1kHz sine wave, cursor on 2nd harmonic at -26dB"/>
-<figcaption>FFT of 1kHz sine wave out of the Teensy, 2nd harmonic at -26dB</figcaption>
+<figcaption>
+
+FFT of 1kHz sine wave out of the Teensy, 2nd harmonic at -26dB
+
+</figcaption>
 </figure>
 
 <figure>
 <img src="/images/2020-11-23/figure3.png" alt="FFT of 1kHz sine wave, cursor on 3rd harmonic at -44.8dB"/>
-<figcaption>FFT of 1kHz sine wave out of the Teensy, 3rd harmonic at -44.8dB</figcaption>
+<figcaption>
+
+FFT of 1kHz sine wave out of the Teensy, 3rd harmonic at -44.8dB
+
+</figcaption>
 </figure>
 
 I initially measured this with a cheap DSO138, but it was introducing artifacts that wouldn't let me see clearly beyond the second harmonic. However, measuring this with a proper oscilloscope showed that the Teensy got it spot-on.

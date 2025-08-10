@@ -2,8 +2,6 @@
 layout: post
 title: Using linear potentiometers for pseudo-logarithmic volume control
 modified_date: 2023-05-17
-excerpt: Are you trying to control volume in an audio circuit using a potentiometer? Then you should probably want a "logarithmic-taper" potentiometer, also called an "audio-taper" or "A"-taper potentiometer. Those allow you to vary the voltage of a signal going through it logarithmically as you turn.
-tags: [voltage dividers, potentiometers, input/output impedances]
 ---
 
 *Note: This text assumes knowledge of Ohm's Law, series and parallel resistances, and voltage dividers*
@@ -12,7 +10,11 @@ Are you trying to control volume in an audio circuit using a potentiometer? Then
 
 <figure>
 <img src="/images/2020-08-13/figure1.png" alt="potentiometers with A and B tapers"/>
-<figcaption>Potentiometers with A- and B- tapers, shown along with the pseudo-logarithmic technique. By "endolith" via flickr and used under the <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">CC BY-NC-SA 2.0 license</a></figcaption>
+<figcaption>
+
+Potentiometers with A- and B- tapers, shown along with the pseudo-logarithmic technique. By "endolith" via Flickr and used under the <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">CC BY-NC-SA 2.0 license</a>
+
+</figcaption>
 </figure>
 
 By contrast, ordinary "linear taper", or "B"-taper, potentiometers vary the voltage linearly---the fraction of the turn you set is exactly the fraction of the original voltage you expect. Then, this voltage drives a speaker at a lower or higher power. However, human hearing has been shown to be logarithmic. For something to sound louder and louder with equal steps, we must dump *more and more* power into the same sound with every next step.
