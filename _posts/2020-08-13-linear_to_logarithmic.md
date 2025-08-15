@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Using linear potentiometers for pseudo-logarithmic volume control
-modified_date: 2023-05-17
+modified_date: 2025-08-14
 ---
 
 *Note: This text assumes knowledge of Ohm's Law, series and parallel resistances, and voltage dividers*
@@ -33,7 +33,7 @@ However, linear-taper potentiometers don't take this human phenomenon into accou
 
 $$20 \log_{10} \left( \frac{V}{V_0} \right) \text{dB}$$
 
-where $V / V_0$ is the fraction of the original voltage, is that equal step. Since this fraction is exactly equal to the fraction of the turn for linear potentiometers, we can set this equal to a turn variable $c$ between $0$ and $1$. We can then plot the perceived loudness as $20 \log_{10} c$.
+where $V / V_0$ is the fraction of the original voltage, is that equal step. This number, which can be multiplied with $V_0$ to get $V$, is typically called the "gain". Since gain is exactly equal to the fraction of the turn for linear potentiometers, we can set this equal to a turn variable $c$ between $0$ and $1$. We can then plot the perceived loudness as $20 \log_{10} c$.
 
 <figure>
 <img src="/images/2020-08-13/figure4.png" alt="perceived loudness of linear-taper in dB"/>
@@ -43,7 +43,7 @@ By contrast, logarithmic-taper potentiometers would appear here as a straight li
 
 Now, what if we've already ordered linear-taper potentiometers but need logarithmic behavior ASAP? You can consider the "loading resistor" technique for a pseudo-logarithmic behavior. This circuit has [circulated](https://djjondent.blogspot.com/2019/12/kjhfkl.html) [on](http://tomjewell.com/Technical/logpot/logpot.html) [the](https://www.diyaudio.com/community/threads/conversion-of-linear-to-log-pot-using-resistor.280348/) [internet](https://sound-au.com/project01.htm) long before me, but let's do a rigorous construction of it to see where and why it works, but also where and why it can fail.
 
-When a potentiometer is used to vary the fraction of the original voltage, it is installed as an adjustable voltage divider.
+When a potentiometer is used to vary the gain, it is installed as an adjustable voltage divider.
 
 <figure>
 <img src="/images/2020-08-13/figure7.png" alt="potentiometer as a voltage divider"/>
@@ -67,7 +67,7 @@ This is an intimidating expression! However, sources on the loading resistor des
 
 $$ \begin{align*} \frac{V}{V_0} & = \frac{\frac{1}{\frac{1}{c R_1} + \frac{1}{R_2}}}{\frac{1}{\frac{1}{c R_1} + \frac{1}{R_2}} + (1-c) R_1} \\ & \, \, \left\downarrow \frac{1}{\frac{1}{c R_1} + \frac{1}{R_2}} = \frac{c R_1 R_2}{c R_1 + R_2} \right. \\ & = \frac{c R_1 R_2}{c R_1 R_2 + (1-c) R_1 (c R_1 + R_2)} \\ & = \frac{c R_2 / R_1}{c R_2 / R_1 + (1-c)(c + R_2 / R_1)} \\ & \, \downarrow r = R_2 / R_1 \\ & = \frac{c r}{c r + (1-c)(c + r)} \\ & = \frac{cr}{rc + c + r - c^2 -rc} \boxed{ = \frac{cr}{r + c - c^2} } \end{align*} $$
 
-This reduction shows that the behavior of the loading resistor design as you turn the knob---thereby varying $c$---depends *only* on the ratio $r$. There seem to be many good ratios, but we can take just $r=0.12$ for example. This can be implemented with the potentiometer $R_1$ valued at $100 \text{k}\Omega$ and a loading resistor $R_2$ at $12 \text{k}\Omega$. The behavior in decibels would be
+This reduction shows that the gain of the loading resistor design as you turn the knob---thereby varying $c$---depends *only* on the ratio $r$. There seem to be many good ratios, but we can take just $r=0.12$ for example. This can be implemented with the potentiometer $R_1$ valued at $100 \text{k}\Omega$ and a loading resistor $R_2$ at $12 \text{k}\Omega$. The behavior in decibels would be
 
 $$20 \log_{10} \left( \frac{0.12 c}{0.12 + c - c^2} \right) \text{dB}$$
 
@@ -145,13 +145,13 @@ Curiously, we accepted the possibility of significant error for $c > 0.9$, but t
 
 #### Addendum: "Second-order" Pseudo-logarithmic Volume Control
 
-Notice that the range of volume control for this circuit is 20dB, give or take. There is a class of pseudo-logarithmic volume control circuits that are "second-order" in nature, with a range of around 40dB, though they require an op-amp. Here is the simplest version I've found.
+Notice that the range of volume control for that circuit was 20dB, give or take. There is a class of pseudo-logarithmic volume control circuits that are what I'd call "second-order" in nature, with a range of around 40dB, though they require an op-amp. Here is the simplest version I've found.
 
 <figure>
 <img src="/images/2020-08-13/figure13.png" alt="2nd-order pseudo-logarithmic circuit"/>
 </figure>
 
-It has a behavior of
+It has a gain of
 
 $$\frac{V}{V_0} = \frac{-c}{r-c+1}$$
 
@@ -161,6 +161,45 @@ with the decibel plot
 <img src="/images/2020-08-13/figure14.png" alt="loudness of second-order method in dB"/>
 </figure>
 
-Though, I wouldn't recommend using this specific example in the real world. If the potentiometer fails, it could break the negative feedback loop, and the op-amp would next go slamming into its rails. I've seen some safer "second-order" varieties out there, but I leave designing them as an open question.
+As an op-amp is involved, the direction also happens to introduce some amplification, which may or may not be also helpful, and the turn of the potentiometer is roughly split evenly between attenuation and amplification. As can be found from the above expression--now not just a fraction but a number that can be greater than one--the maximum gain is just $r^{-1}$, or $R_1 / R_2$. In this case, that's about 8.333, or 18.5 dB.
+
+Though, I wouldn't recommend using this specific example in the real world. If the potentiometer fails, it could break the negative feedback loop, and the op-amp would next go slamming into its rails. A circuit that does that isn't acceptable because it could harm anything that plugs into its output. At the very least, there would have to be a clipping circuit, like this.
+
+<figure>
+<img src="/images/2020-08-13/figure15.png" alt="2nd-order pseudo-logarithmic circuit with clipping zener diodes"/>
+</figure>
+
+The Zener diodes are in "anti-series", i.e. they're connected end-to-end but with like polarities facing each other. It's cathode-to-cathode, not cathode-to-anode. The effect is that the voltage, whether positive or negative, must be greater than the forward voltage 0.7V of one diode plus the Zener breakdown voltage of the other before the pair starts to conduct. Any excess voltage--in either direction--is shorted. Now, shorting the op-amp would be no good either, so *necessarily* there is a resistor between the Zeners and the op-amp output, its value depending on how much short-circuit current is tolerated. But the output *also* needs to be on the other side of that resistor. We're faced with a trade-off between output impedance and short-circuit current, not to mention all the complaints people may have about putting a non-linear device in the signal path. And sure, many op-amps can survive being shorted outright, and that resistor can go up to 1k Ohm before the output really stops being a "line output" (neglectable output impedance, relative to a standard 10k "line" input impedance), but none of this feels ideal.
+
+It would almost seem like "second-order" circuits are only good in theory, but in fact, at least one real good one seems to exist: the [Baxandall volume control circuit](https://resources.altium.com/p/baxandall-volume-control-audio).
+
+<figure>
+<img src="/images/2020-08-13/figure16.png" alt="baxandall circuit"/>
+<figcaption>
+
+A circuit diagram of the minimal configuration of the Baxandall volume control circuit, of which actually practical designs can be found online.
+
+</figcaption>
+</figure>
+
+Regarding that circuit, I haven't tried to get the expression for its gain yet, but I did look into how it would handle the potentiometer breaking. In that analysis, I did find that its maximum gain was also $R_1 / R_2$, but the resistors that were $R_1$ and $R_2$ was surprising. In fact, neither one is the potentiometer, and the value of the potentiometer itself *has no impact on the gain*.
+
+For more to say, here's what I wrote in an email to someone asking me about an older version of this section.
+
+> I would start by looking into the Baxandall volume control circuit. To be honest, that was largely the circuit I had in mind when I first wrote that there were "safer" second-order varieties out there. But I wasn't sure about that claim, so I hedged by not mentioning it outright. Sorry about that, and I think I'll have update that page sometime.
+>
+> I took a crack at analyzing it for myself a bit. It's a circuit that also achieves the 40dB of volume control which I'd call "second-order", but it actually does so without the linear potentiometer inside the negative feedback loop. As a result, it doesn't pose the same risk of slamming into the rails when the potentiometer is broken.
+>
+> A caveat to it though is its input impedance. Setting aside the loading of the buffer stage inside for now, the input impedance is the potentiometer resistance divided by the maximum gain minus one, and 40 dB of logarithmic volume control is only achieved when the max set gain is 10 (+20dB). Lower causes less volume control, and higher causes the logarithmic behavior to degrade. Putting in a 10k potentiometer, and the minimum input impedance would only be 1.1k. Putting in a 100k potentiometer, it'd be 11k, but then there's the loading of the buffer stage to worry about--overall the design considerations for 100k aren't forgiving. It's simpler to just put a buffer in front in order to get back line-level impedance.
+>
+> Also, "Baxandall volume control" should get a couple hits on the internet, but there's also a section on it in Douglas Self's Small Signal Audio Design.
+>
+> Ah, I would add that, in the worst case, it would jump to 10x gain. That’s not as bad as slamming into the rails, but it could require some care.
+
+To correct myself there a bit, though, it's not that the potentiometer is *entirely* outside the negative feedback loop, or else it wouldn't have an impact at all! Rather, the negative feedback loop *doesn't pass solely* through the potentiometer. This can help to mitigate the damage that a break in one would cause. Also, "40 dB of logarithmic volume control" is a bit of a soft standard that depends on what one is willing to consider "logarithmic", so there is a bit of flexibility between choosing +18.5 dB or +20 dB.
+
+One thing I still insist on now is finding a practical design of the Baxandall volume control circuit. That was also true of the other circuit, but this one doesn't involve clipping Zeners! The challenges with this one just lies in loading, like the loading we covered here in this post.
+
+Finally, I would show my work into the analysis on if the potentiometer broke, but I think that is actually deserving of another blog post. That also gives me the opportunity to actually build out the circuit and probe it. After I get around to it, you can click to the post here.
 
 </div> <!-- div class="info-panel" -->

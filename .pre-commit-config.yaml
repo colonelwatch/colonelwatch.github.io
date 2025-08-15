@@ -2,12 +2,6 @@ default_stages: [pre-commit]
 repos:
 - repo: local
   hooks:
-  - id: update-preview-css
-    name: Update Markdown preview CSS
-    entry: sass -I _sass --no-source-map .vscode/style.scss .vscode/style.css
-    language: system
-    types: [scss]
-    pass_filenames: false
   - id: compress-png
     name: Compress PNGs
     entry: parallel -j 20 --nice 10 "zopflipng -y {} {}" ":::"

@@ -28,6 +28,10 @@
     margin-bottom: 0;
   }
 
+  > blockquote {
+    border-left: 4px solid $border-color-02;
+  }
+
   @include media-query($on-palm) {
     margin-left: 0;
     margin-right: 0;
@@ -56,6 +60,10 @@
   }
   > :last-child {
     margin-bottom: 0;
+  }
+
+  > blockquote {
+    border-left: 4px solid $border-color-02;
   }
 
   @include media-query($on-palm) {
@@ -95,4 +103,8 @@ figcaption {
     display: none;
     min-height: 0px;
   }
+}
+
+blockquote {
+  @include relative-font-size(1.0);
 }

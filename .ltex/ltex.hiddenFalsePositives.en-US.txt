@@ -1,0 +1,2 @@
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qwhere \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-)[0-9]+\\Q is the fraction of the original voltage, is that equal step.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qand this gets us a new divider.\\E$"}
