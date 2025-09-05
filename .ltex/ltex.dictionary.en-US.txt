@@ -3,3 +3,13 @@ Zener
 Zeners
 Baxandall
 neglectable
+Stam
+Chorin
+Alexandrov
+Kormes
+SOR
+lerp
+HerrHartmuth
+FreeRTOS
+CYD
+multigrid
