@@ -18,3 +18,7 @@ Runge-Kutta
 bilinearly
 backtracing
 timesteps
+Lough
+eSPI
+Adafruit
+Protomatter
