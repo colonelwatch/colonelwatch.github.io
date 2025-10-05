@@ -21,3 +21,11 @@
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qwhereby each component gets multiplied by the corresponding eigenvalue in each iteration.\\E$"}
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qand the central difference uses the preceding point and the succeeding point.\\E$"}
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qon the domain, whereas on the boundary its \"directional derivative\" is specified.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qapply \"semi-Lagrangian advection\", an implementation of the advection operator (for \"advection\", see Part 3), to the velocities,\napply the user's input to the velocities,\napply \"divergence-free projection\" to velocities in order to correct it (i.e. the pressure step briefed in Part 3 and to be explained in the next part) and finally,\napply semi-Lagrangian advection to the density array with the updated velocities.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QStam presents a unique time discretization here.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QOf course, Stam presented one in \"Stable Fluids\" too.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qwhere \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-)[0-9]+\\Q is a vector with some reasonably predetermined magnitude but with a direction equal to that of \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-)[0-9]+\\Q.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qwhere \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-)[0-9]+\\Q is the number of items in the queue.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q(Technically, the specific formulation that Stam presents doesn't eliminate it entirely, but it does eliminate most of it.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qwhere \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-)[0-9]+\\Q is a linear projection onto the space of velocity fields with zero divergence.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qwhere, we've again set \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-)[0-9]+\\Q to zero.\\E$"}
